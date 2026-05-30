@@ -7,7 +7,8 @@ while True:
     print("1 . Add Task")
     print("2 . View Task")
     print("3 . Delete Task")
-    print("4 . Exit")
+    print("4 . Save Tasks")
+    print("5 . Exit")
 
     choice = input("Enter your Choice:")
 
@@ -30,8 +31,20 @@ while True:
        
           delete_number=int(input("Entertask number to delete:"))
           tasks.pop(delete_number - 1)
+          print("Task Deleted Successfully")
     
     elif choice == "4":
+
+          file = open("tasks.txt", "w")
+
+          for task in tasks:
+              file.write(task + "\n")
+
+          file.close()
+
+          print("Tasks saved successfully")
+
+    elif choice == "5":  
         break
 
     else:
